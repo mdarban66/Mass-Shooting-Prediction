@@ -1,0 +1,7 @@
+library(NLP)
+library(tm)
+library(syuzhet)
+tweets <- read.csv("/media/mona/My Passport/Tweepy-TwitterData/SynchedTime/SentimentAnalysisforRstudio/AA/July16.csv", stringsAsFactors = FALSE)
+mySentiment <- get_nrc_sentiment(tweets$Text)
+write.csv(mySentiment,file = "/home/mona/Desktop/Untitled Folderget/R/MyData.csv")
+write.csv(colSums(prop.table(mySentiment[,1:10])),file = "/home/mona/Desktop/Untitled Folderget/R/MyData1.csv")
